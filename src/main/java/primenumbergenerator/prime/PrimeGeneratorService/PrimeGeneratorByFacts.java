@@ -1,21 +1,23 @@
-package primenumbergenerator.prime;
+package primenumbergenerator.prime.PrimeGeneratorService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PrimeGeneratorbyFacts {
+public class PrimeGeneratorByFacts {
     public List<Integer> primeList(int lowRange, int highRange) {
         List<Integer> primeIntegerList = new LinkedList<>();
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        System.out.println(dtf.format(LocalDateTime.now()));
+        System.out.println("Start Time:" + dtf.format(LocalDateTime.now()));
+        long start_time = System.currentTimeMillis();
+
         for (int number = lowRange; number < highRange; number++) {
-            boolean isPrime = true;
-            if ((number > 2 && number %2 == 0) || (number > 5 && number % 5 == 0)) {
+            if ((number > 2 && number % 2 == 0) || (number > 5 && number % 5 == 0)) {
                 continue;
             }
-            if(number > 3) {
+            if (number > 3) {
                 int sum = String.valueOf(number)
                         .chars()
                         .map(Character::getNumericValue)
@@ -26,8 +28,8 @@ public class PrimeGeneratorbyFacts {
                     continue;
                 }
             }
-
-            for (int j = 2; j <= number/2 ; j++) {
+            boolean isPrime = true;
+            for (int j = 2; j < number / 2; j++) {
                 if (number % j == 0) {
                     isPrime = false;
                     break;
@@ -37,8 +39,12 @@ public class PrimeGeneratorbyFacts {
                 primeIntegerList.add(number);
             }
         }
-        System.out.println(dtf.format(LocalDateTime.now()));
+        System.out.println("End time:" + dtf.format(LocalDateTime.now()));
+        System.out.print("Time elapsed: " + (System.currentTimeMillis() - start_time));
         System.out.print("Size: " + primeIntegerList.size());
+
         return primeIntegerList;
     }
 }
+
+
