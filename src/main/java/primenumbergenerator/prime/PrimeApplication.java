@@ -2,18 +2,21 @@ package primenumbergenerator.prime;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import primenumbergenerator.prime.PrimeGeneratorService.PrimeGeneratorByFacts;
-import primenumbergenerator.prime.PrimeGeneratorService.SimplePrimeGenerator;
-import primenumbergenerator.prime.PrimeGeneratorService.SmartPrimeGenerator;
+import primenumbergenerator.prime.Service.PrimeGeneratorByFactsService;
+import primenumbergenerator.prime.Service.SimplePrimeGeneratorService;
+import primenumbergenerator.prime.Service.SmartPrimeGeneratorService;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 @SpringBootApplication
 public class PrimeApplication {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         SpringApplication.run(PrimeApplication.class, args);
+        runUserAction();
+    }
+
+    private  static  void runUserAction(){
         while (true) {
             System.out.print("\n\n****Prime Generator****\n\n");
             System.out.print("Which Prime Number generator you want to use?");
@@ -30,20 +33,21 @@ public class PrimeApplication {
             }
             switch (choice) {
                 case 1:
-                    SimplePrimeGenerator simplePrimeGenerator = new SimplePrimeGenerator();
-                    System.out.print(simplePrimeGenerator.primeList(lowRange, highRange));
+                    SimplePrimeGeneratorService simplePrimeGenerator = new SimplePrimeGeneratorService();
+                    System.out.print("Prime Numbers between " + lowRange + " and " + highRange +":"+ simplePrimeGenerator.getPrimeList(lowRange, highRange));
                     break;
                 case 2:
-                    SmartPrimeGenerator newPrimeGenerator = new SmartPrimeGenerator();
-                    System.out.print(newPrimeGenerator.primeList(lowRange, highRange));
+                    SmartPrimeGeneratorService smartPrimeGenerator = new SmartPrimeGeneratorService();
+                    System.out.print("Prime Numbers between " + lowRange + " and " + highRange +":"+ smartPrimeGenerator.getPrimeList(lowRange, highRange));
                     break;
                 case 3:
-                    PrimeGeneratorByFacts primeGeneratorbyFacts = new PrimeGeneratorByFacts();
-                    System.out.print(primeGeneratorbyFacts.primeList(lowRange, highRange));
+                    PrimeGeneratorByFactsService primeGeneratorbyFacts = new PrimeGeneratorByFactsService();
+                    System.out.print("Prime Numbers between " + lowRange + " and " + highRange +":"+ primeGeneratorbyFacts.getPrimeList(lowRange, highRange));
                     break;
                 default:
                     System.out.print("Please enter a valid option from 1 to 3");
             }
         }
+
     }
 }
