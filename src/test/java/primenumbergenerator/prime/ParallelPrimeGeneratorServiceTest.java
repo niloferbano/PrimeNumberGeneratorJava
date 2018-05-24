@@ -39,4 +39,13 @@ public class ParallelPrimeGeneratorServiceTest {
         assertEquals(testList, integerList);
 
     }
+
+    @Test
+    public void testlowRange() throws InterruptedException{
+        ParallelPrimeGeneratorService parallelPrimeGeneratorService = new ParallelPrimeGeneratorService();
+        List<Integer> integerList = parallelPrimeGeneratorService.getPrimeList(20, 10);
+        List<Integer> testList = new LinkedList<>();
+        assertEquals(testList, integerList);
+
+    }
 }

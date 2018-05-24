@@ -40,4 +40,13 @@ public class SmartPrimeGeneratorServiceTest {
 
     }
 
+    @Test
+    public void testlowRange() throws InterruptedException{
+        SimplePrimeGeneratorService simplePrimeGeneratorService = new SimplePrimeGeneratorService();
+        List<Integer> integerList = simplePrimeGeneratorService.getPrimeList(20, 10);
+        List<Integer> testList = new LinkedList<>();
+        assertEquals(testList, integerList);
+
+    }
+
 }

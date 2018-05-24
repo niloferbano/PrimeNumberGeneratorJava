@@ -15,6 +15,7 @@ public class SmartPrimeGeneratorService {
    @Autowired LogService logService;
 
     public List<Integer> getPrimeList(int lowRange, int highRange) {
+
         List<Integer> primeIntegerList = new LinkedList<>();
 
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
