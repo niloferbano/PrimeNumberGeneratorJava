@@ -48,17 +48,17 @@ java -jar target/*.jar
 ```
 
 
-```
-Example for REST call
-```
-http://localhost:8080/primegenerator/{method to be used[1/2/3/4]}/{low_range}/{high_range}
-1 for Naive approach
-2 for slightly better optimization than 1st strategy
-3 for a quick execution
-4 parallel execution for large numbers
 
-low_range Starting range
-high_range End range
+## Example for REST call
+
+http://localhost:8080/primegenerator/{method to be used[1/2/3/4]}/{low_range}/{high_range}
+*1 for Naive approach
+*2 for slightly better optimization than 1st strategy
+*3 for a quick execution
+*4 parallel execution for large numbers
+
+*low_range Starting range
+*high_range End range
 
 for example http://localhost:8080/primegenerator/1/1/100
 
