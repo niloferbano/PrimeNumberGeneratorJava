@@ -20,10 +20,10 @@ public  class SimplePrimeGeneratorService {
         long start_time = System.currentTimeMillis();
 
         int start = lowRange;
-        if(lowRange == 1 || lowRange == 0){
+        if(lowRange == 1 || lowRange == 0 || lowRange < 0){
             start = 2;
         }
-        for (int number = start; number <= highRange; number++) {
+        for (int number = start; number < highRange; number++) {
             boolean isPrime = true;
             for (int j = 2; j < number; j++) {
                 if (number % j == 0) {

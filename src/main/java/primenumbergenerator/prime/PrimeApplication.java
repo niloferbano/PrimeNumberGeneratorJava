@@ -2,6 +2,7 @@ package primenumbergenerator.prime;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import primenumbergenerator.prime.Service.ParallelPrimeGeneratorService;
 import primenumbergenerator.prime.Service.PrimeGeneratorByFactsService;
 import primenumbergenerator.prime.Service.SimplePrimeGeneratorService;
 import primenumbergenerator.prime.Service.SmartPrimeGeneratorService;
@@ -11,16 +12,17 @@ import java.util.Scanner;
 @SpringBootApplication
 public class PrimeApplication {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args)  throws InterruptedException{
         SpringApplication.run(PrimeApplication.class, args);
         runUserAction();
     }
 
-    private  static  void runUserAction(){
+    private  static  void runUserAction() throws InterruptedException{
         while (true) {
             System.out.print("\n\n****Prime Generator****\n\n");
-            System.out.print("Which Prime Number generator you want to use?");
-            System.out.print("1. Naive approach\n2. Smart Prime function\n3. Prime Generator by facts\n");
+            System.out.print("Which Prime Number generator you want to use?\n");
+            System.out.print("1. Naive approach\n2. Smart Prime function\n3. Prime Generator by facts\n"
+            + "4.Parallel Prime Generator\n\n");
             int choice = new Scanner(System.in).nextInt();
             System.out.println("Enter number low range: ");
             int lowRange = new Scanner(System.in).nextInt();
@@ -44,8 +46,12 @@ public class PrimeApplication {
                     PrimeGeneratorByFactsService primeGeneratorbyFacts = new PrimeGeneratorByFactsService();
                     System.out.print("Prime Numbers between " + lowRange + " and " + highRange +":"+ primeGeneratorbyFacts.getPrimeList(lowRange, highRange));
                     break;
+                case 4:
+                    ParallelPrimeGeneratorService parallelPrimeGeneratorService = new ParallelPrimeGeneratorService();
+                    System.out.print("Prime Numbers between " + lowRange + " and " + highRange +":"+ parallelPrimeGeneratorService.getPrimeList(lowRange,highRange));
+                    break;
                 default:
-                    System.out.print("Please enter a valid option from 1 to 3");
+                    System.out.print("Please enter a valid option from 1 to 4");
             }
         }
 

@@ -40,28 +40,4 @@ public class PrimeGenerator {
         this.countPrimes = countPrimes;
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getTimeStamp() {
-//        return timeStamp;
-//    }
-//
-//    public void setTimeStamp(String timeStamp) {
-//        this.timeStamp = timeStamp;
-//    }
-//
-//    public String getRange() {
-//        return range;
-//    }
-//
-//    public void setRange(String range) {
-//        this.range = range;
-//    }
-
 }

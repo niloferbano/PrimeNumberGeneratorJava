@@ -20,7 +20,7 @@ public class SmartPrimeGeneratorService {
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
         long start_time = System.currentTimeMillis();
         int start = lowRange;
-        if(lowRange == 1 || lowRange == 0){
+        if(lowRange == 1 || lowRange == 0 || lowRange < 0){
             start = 2;
         }
         for (int number = start; number < highRange; number++) {
@@ -36,13 +36,13 @@ public class SmartPrimeGeneratorService {
                 primeIntegerList.add(number);
             }
         }
-        String range = Integer.toString(lowRange) + "-" + Integer.toString(highRange);
         long end_time = System.currentTimeMillis();
         long timeElapsed = end_time - start_time;
-
+        System.out.print("Size: " + primeIntegerList.size());
         System.out.print("Time elapsed: " + timeElapsed);
         //Logging enabled only for calls from Rest Controller
         if(logService != null){
+            String range = Integer.toString(lowRange) + "-" + Integer.toString(highRange);
             String algorithmsName = "SmartPrimeGenerator";
             int countPrimes = primeIntegerList.size();
             long id = (timeStamp + range).hashCode();
