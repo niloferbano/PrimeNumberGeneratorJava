@@ -18,37 +18,6 @@ git clone https://github.com/niloferbano/PrimeNumberGeneratorJava.git
 cd PrimeNumberGeneratorJava
 ```
 
-### Build an executable JAR
-
-You can run the application from the command line using:
-```
-mvn spring-boot:run
-```
-Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources with:
-```
-mvn clean package
-```
-Then you can run the JAR file with:
-```
-java -jar target/*.jar
-```
-## Running the tests
-
-You can run the application from the command line using:
-```
-mvn spring-boot:run
-```
-Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources with:
-```
-mvn clean package
-```
-Then you can run the JAR file with:
-```
-java -jar target/*.jar
-```
-
-
-
 ## Example for REST call
 
 http://localhost:8080/primegenerator/{1/2/3/4}/{low_range}/{high_range}
@@ -61,6 +30,8 @@ http://localhost:8080/primegenerator/{1/2/3/4}/{low_range}/{high_range}
 * high_range - End range
 
 for example http://localhost:8080/primegenerator/1/1/100
+
+Commandline version can be used from IDE console or by running the jar file.
 
 
 
