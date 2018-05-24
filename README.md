@@ -51,7 +51,7 @@ java -jar target/*.jar
 
 ## Example for REST call
 
-http://localhost:8080/primegenerator/{method to be used[1/2/3/4]}/{low_range}/{high_range}
+http://localhost:8080/primegenerator/{1/2/3/4}/{low_range}/{high_range}
 * 1 -  Naive approach
 * 2 -  slightly better optimization than 1st strategy
 * 3 - a quick execution
