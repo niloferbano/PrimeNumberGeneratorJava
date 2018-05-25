@@ -19,15 +19,29 @@ public class PrimeApplication {
 
     private  static  void runUserAction() throws InterruptedException{
         while (true) {
+            Scanner sc = new Scanner(System.in);
             System.out.print("\n\n****Prime Generator****\n\n");
             System.out.print("Which Prime Number generator you want to use?\n");
             System.out.print("1. Naive approach\n2. Smart Prime function\n3. Prime Generator by facts\n"
             + "4.Parallel Prime Generator\n\n");
-            int choice = new Scanner(System.in).nextInt();
+            while(!sc.hasNextInt()) {
+                System.out.print("Please enter an integer:");
+                sc.next();
+            }
+            int choice = sc.nextInt();
             System.out.println("Enter number low range: ");
-            int lowRange = new Scanner(System.in).nextInt();
+            int lowRange, highRange;
+            while(!sc.hasNextInt()) {
+                System.out.print("Please enter an integer:");
+                sc.next();
+            }
+            lowRange = sc.nextInt();
             System.out.println("Enter number high range: ");
-            int highRange = new Scanner(System.in).nextInt();
+            while(!sc.hasNextInt()) {
+                System.out.print("Please enter an integer:");
+                sc.next();
+            }
+            highRange = sc.nextInt();
             InputSanityCheck inputSanityCheck = new InputSanityCheck();
             lowRange = inputSanityCheck.checkInputs(lowRange, highRange);
             if(lowRange == -1){

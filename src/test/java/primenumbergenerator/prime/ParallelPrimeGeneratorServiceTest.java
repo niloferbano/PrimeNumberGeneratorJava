@@ -46,6 +46,5 @@ public class ParallelPrimeGeneratorServiceTest {
         List<Integer> integerList = parallelPrimeGeneratorService.getPrimeList(20, 10);
         List<Integer> testList = new LinkedList<>();
         assertEquals(testList, integerList);
-
     }
 }

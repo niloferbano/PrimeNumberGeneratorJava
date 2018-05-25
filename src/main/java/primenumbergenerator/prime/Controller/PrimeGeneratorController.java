@@ -31,7 +31,7 @@ public class PrimeGeneratorController {
     private LogService logService;
 
     @RequestMapping(path = "/primegenerator/{type}/{lowrange}/{highrange}", method = RequestMethod.GET)
-    String getPrimeNumbers(@PathVariable int type, @PathVariable int lowrange, @PathVariable int highrange) throws InterruptedException {
+    String getPrimeNumbers(@PathVariable int type, @PathVariable int lowrange, @PathVariable int highrange) throws InterruptedException, NumberFormatException {
         InputSanityCheck inputSanityCheck = new InputSanityCheck();
         int start = inputSanityCheck.checkInputs(lowrange, highrange);
         if (start == -1) {
