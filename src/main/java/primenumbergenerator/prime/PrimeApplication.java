@@ -2,10 +2,10 @@ package primenumbergenerator.prime;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import primenumbergenerator.prime.Service.ParallelPrimeGeneratorService;
-import primenumbergenerator.prime.Service.PrimeGeneratorByFactsService;
-import primenumbergenerator.prime.Service.SimplePrimeGeneratorService;
-import primenumbergenerator.prime.Service.SmartPrimeGeneratorService;
+import primenumbergenerator.prime.service.ParallelPrimeGeneratorService;
+import primenumbergenerator.prime.service.PrimeGeneratorByFactsService;
+import primenumbergenerator.prime.service.SimplePrimeGeneratorService;
+import primenumbergenerator.prime.service.SmartPrimeGeneratorService;
 
 import java.util.Scanner;
 
@@ -43,8 +43,7 @@ public class PrimeApplication {
             }
             highRange = sc.nextInt();
             InputSanityCheck inputSanityCheck = new InputSanityCheck();
-            lowRange = inputSanityCheck.checkInputs(lowRange, highRange);
-            if(lowRange == -1){
+            if(!inputSanityCheck.checkInputs(lowRange, highRange)) {
                 return;
             }
             switch (choice) {

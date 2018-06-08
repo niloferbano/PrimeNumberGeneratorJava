@@ -1,7 +1,7 @@
 package primenumbergenerator.prime;
 
 import org.junit.jupiter.api.Test;
-import primenumbergenerator.prime.Service.SmartPrimeGeneratorService;
+import primenumbergenerator.prime.service.SmartPrimeGeneratorService;
 
 import java.util.LinkedList;
 import java.util.List;
